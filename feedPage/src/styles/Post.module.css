@@ -19,6 +19,7 @@
 }
 
 .content a{
+    cursor: pointer;
     font-weight: bold;
     color: var(--green-500);
     text-decoration: none;
