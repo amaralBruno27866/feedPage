@@ -1,6 +1,6 @@
+import { Avatar } from './Avatar';
 import {Trash, ThumbsUp} from 'phosphor-react'
 import styles from '../styles/Comment.module.css'
-import { Avatar } from './Avatar';
 
 export function Comment(){
     return(
