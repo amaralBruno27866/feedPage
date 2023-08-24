@@ -10,7 +10,7 @@ export function Comment(){
                 <div className={styles.commentContent}>
                     <header>
                         <div className={styles.aoutherAdnTime}>
-                            <strong>Username</strong>
+                            <strong>Sahra Jones - </strong>
                             <time title="date and hour" dateTime="date USA">
                                 Published 1 hour ago
                             </time>
