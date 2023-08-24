@@ -1,36 +1,59 @@
 import { Avatar } from './Avatar';
 import { Comment } from './Comment';
+import { format, formatDistanceToNow } from 'date-fns';
+import { useState } from 'react';
 import styles from '../styles/Post.module.css'
 
-export function Post(){
+export function Post({author, publishedAt, content}){
+
+    const [comments, setComments] = useState ([
+        1,
+        2,
+    ])
+
+    const publishedDateFormatted = format(
+        publishedAt,
+        "d 'at' LLLL '-' HH:MM 'h'"
+    )
+
+    const publishedDateRelativeToNow = formatDistanceToNow(
+        publishedAt, {
+            addSuffix: true,
+        }
+    )
+
+    function handleCreateNewComment(){
+        event.preventDefault()
+        setComments([...comments, commentsList + 1]);
+    }
+
     return(
         <article className={styles.post}>
             <header>
                 <div className={styles.author}>
 
-                    <Avatar src="https://github.com/NyctibiusVII.png" alt="User picture" />
+                    <Avatar src={author.avatarUrl} alt="User picture" />
 
                     <div className={styles.authorInfo}>
-                        <strong>NyctibiusVII</strong>
-                        <span>Front-End Programmer</span>
+                        <strong>{author.name}</strong>
+                        <span>{author.role}</span>
                     </div>
                 </div>
 
-                    <time title="May 13 at 08:13PM" dateTime="2023-05-13 20:13:30">
-                        Published 1 hour ago
+                    <time title={publishedDateFormatted} dateTime={publishedAt.toISOString()}>
+                        {publishedDateRelativeToNow}
                     </time>
 
             </header>
 
             <div className={styles.content}>
-                    <p>Hey guys 👋</p>
-                    <p>I just uploaded another project to my portfolio. It's a project I did at NLW Return, a Rocketseat event. Project name is DoctorCare 🚀</p>
-                    <p>👉{''}<a>jane.design/doctorcare</a></p>
-                    <p>
-                        <a>#newproject </a>{''}
-                        <a>#nlw </a>{''}
-                        <a>#rocketseat</a>
-                    </p>
+                {content.map(line => {
+                    if(line.type === 'paragraph'){
+                        return <p>{line.content}</p>;
+                    }else if(line.type === 'link'){
+                        return<p><a href="#">{line.content}</a></p>
+                    }
+                })}
             </div>
 
             <form className={styles.commentForm}>
@@ -41,7 +64,9 @@ export function Post(){
                 </footer>
             </form>
             <div className={styles.commentList}>
-                <Comment />
+                {comments.map(comment => {
+                    return <Comment />
+                })}
             </div>
         </article>
     );
