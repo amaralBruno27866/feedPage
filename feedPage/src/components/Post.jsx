@@ -40,7 +40,7 @@ export function Post(){
                     <button type='submit'>Publish</button>
                 </footer>
             </form>
-            <div>
+            <div className={styles.commentList}>
                 <Comment />
             </div>
         </article>

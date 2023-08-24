@@ -11,12 +11,12 @@ export function Comment(){
                     <header>
                         <div className={styles.aoutherAdnTime}>
                             <strong>Sahra Jones - </strong>
-                            <time title="date and hour" dateTime="date USA">
-                                Published 1 hour ago
+                            <time title="May 13 at 08:13PM" dateTime="2023-05-13 20:13:30">
+                                Arround 1 hour ago
                             </time>
                         </div>
                         <button title='Delete'>
-                            <Trash size={20} />
+                            <Trash size={24} />
                         </button>
                     </header>
                     <p>Good job user!!!!</p>
