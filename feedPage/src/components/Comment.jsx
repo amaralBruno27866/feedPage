@@ -22,14 +22,14 @@ export function Comment({content, onDeleteComment}){
                                 Arround 1 hour ago
                             </time>
                         </div>
-                        <button title='Delete'>
+                        <button onClick={handleDeleteComment} title='Delete comment'>
                             <Trash size={24} />
                         </button>
                     </header>
                     <p>{content}</p>
                 </div>
                 <footer>
-                    <button onClick={handleDeleteComment} title='Delete comment'>
+                    <button>
                         <ThumbsUp />
                         Like<span>20</span>
                     </button>
