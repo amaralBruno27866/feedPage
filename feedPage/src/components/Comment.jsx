@@ -2,7 +2,14 @@ import { Avatar } from './Avatar';
 import {Trash, ThumbsUp} from 'phosphor-react'
 import styles from '../styles/Comment.module.css'
 
-export function Comment({content}){
+export function Comment({content, onDeleteComment}){
+
+    function handleDeleteComment(){
+        console.log('delete')
+
+        onDeleteComment (content)
+    }
+
     return(
         <div className={styles.comment}>
             <Avatar hasBorder={false} src="https://github.com/facefusion.png" alt="User Picture" />
@@ -22,7 +29,7 @@ export function Comment({content}){
                     <p>{content}</p>
                 </div>
                 <footer>
-                    <button>
+                    <button onClick={handleDeleteComment} title='Delete comment'>
                         <ThumbsUp />
                         Like<span>20</span>
                     </button>

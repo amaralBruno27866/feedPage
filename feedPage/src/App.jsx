@@ -8,14 +8,14 @@ const posts = [
   {
     id:1,
     author:{
-      avatarUrl: 'https://github.com/amaralBruno27866.png',
-      name: 'Bruno Amaral',
-      role: 'Intern Programmer'
+      avatarUrl: 'https://github.com/acbortolettoseneca.png',
+      name: 'Antonio',
+      role: 'JAVA Senior Programmer'
     },
     content: [
       {type: 'paragraph', content:'Hey guys 👋'},
       {type: 'paragraph', content:"I just uploaded another project to my portfolio. It's a project I did at NLW Return, a Rocketseat event. Project name is DoctorCare 🚀"},
-      {type: 'link', content:'👉 bruno.progm/intership programmer'},
+      {type: 'link', content:'👉 antonio.progm/senior programmer'},
     ],
     publishedAt: new Date('2023-05-03 20:00:00'),
   },
@@ -45,7 +45,8 @@ export function App() {
         <main>
           {posts.map(post => {
             return(
-              <Post 
+              <Post
+                key={post.id}
                 author={post.author}
                 content={post.content}
                 publishedAt = {post.publishedAt}
